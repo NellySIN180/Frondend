@@ -1,14 +1,19 @@
+
+
 .main-header {
     display: flex;
-
+    justify-content: space-between;
+    /* max-width: 1200px; */
+    width: 100%;
+    margin: auto;
+    /* background-color: aqua; */
 }
 
 .hbox1 {
     font-size: 20px;
     font-family: Lato, sans-serif;
     color: #000;
-    margin-right: auto;
-    
+    /* margin-right: auto; */
 }
 
 .hbox1 a{
@@ -22,29 +27,20 @@
     text-decoration: none;
 
 }
-
-.container {
+img{
     width: 100%;
-    margin: auto;
-    /* border: 2px solid orange; */
-    display: flex;
-    flex-wrap: wrap;
+    vertical-align: bottom;
 }
 
-.container-NO1 .pic{
-    width: 1063px;
-    height: 773px;
-    margin-left: -300px;
+.container{
+
 }
+
 
 .container-NO1 {
     
     box-shadow:4px 4px 3px rgba(20%,20%,40%,0.5);
- 
-    width: 1863px;
-    height: 900px;
-    margin: 10px auto;
-    padding: 0 20px;
+    padding: 0 10px;
     display: flex;
     justify-content: center;
     align-content: flex-end;
@@ -52,11 +48,11 @@
 }
 
 .container .container-NO1 .txt {
-    font-size: 100px;
-    vertical-align: 60%;
-    margin: 60px 30px;
-    padding: 70px;
-    line-height: 0px;
+    font-size: 60px;
+    /* vertical-align: 60%; */
+    /* margin: 60px 30px; */
+    /* padding: 70px; */
+    /* line-height: 0px; */
     font-family: sans-serif;
     
 }
@@ -65,7 +61,7 @@
     
 }
 .container-NO1 button{
-        width: 400px;
+        width: 200px;
         height: 100px;
         font-size: 30px;
         color: #fff;
@@ -81,7 +77,7 @@
 }
 
 .sixbox {
-    width: 100%;
+    /* width: 100%; */
     /* margin: auto; */
     /* background-color: violet; */
     height: 500px;
@@ -91,45 +87,47 @@
 .Fooditem{
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     position: relative;
 }
 
-.Fooditem img{
+/* .Fooditem img{
     display: block;
     
-}
+} */
 .Fooditem a{
     font-size: 50px;
     align-items: center;
-    position: absolute;
-    bottom: 250px;
+    position: relative;
+    bottom: 150Px;
     z-index: 4;
-    
 }
 
 .threepic{
     display: flex;
+    justify-content: center;
     margin: auto;
     position: relative;
-    width: 900px;
+    /* width: 900px; */
     margin-bottom: 200px;
     
 }
 .tbox2{
     display: block;
-    margin: 10px 10px;
+    margin: 20px;
     margin-top: -1px;
     position: relative;
 }
 .top{
-    margin: 0 10px;
+  
     position: relative;
 }
 .down{
-    margin: 12px;
+    margin-top: 20px;
     position: relative;
+    display: flex;
+    vertical-align: bottom;
 }
 
 .threepic a{
@@ -160,9 +158,29 @@
     margin: 50px;
     bottom: 20px;
 }
-.BlueBerry{
-    width: 500px;
+
+
+.FeaturedProducts{
+    display: flex;
     margin: auto;
+}
+
+.FeaturedPosts{
+    display: flex;
+    margin: auto;
+    padding: 0 200px;
+}
+.FeaturedPosts .item{
+    padding: 20px;
+}
+.FeaturedPosts img{
+    width: 100%;
+}
+.BlueBerry{
+    /* width: 500px; */
+    margin: 200PX 0;
+    display: flex;
+    justify-content: center;
 }
 
 .BlueBerryDiscount{
