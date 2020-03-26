@@ -95,10 +95,6 @@ div[class*=col-]{
     width: 100%;
 }
 
-
-
-
-
 .item img{
     width: 100%;
 }
@@ -134,10 +130,6 @@ div[class*=col-]{
 }
 
 
-
-
-
-
 .main-top-imformation{
     width: 100%;
     height: 60px;
@@ -149,6 +141,7 @@ div[class*=col-]{
 .imformation{
     display: flex;
     align-items: center;
+    
     margin:0 25px;
 }
 
@@ -175,24 +168,370 @@ a{
     cursor: pointer;
 }
 
-.poster{
+/* .poster{
     position: relative;
+    width: 100%;
 }
+.poster img{
+    width: 100%;
+} */
 
 .header{
-    width: 100%;
+    width: 80%;
     margin: 10px;
+    margin: auto;
     position: absolute;
+    left: 0;
+    right: 0;
     justify-content: center;
-    top: 40%;
-    left: 10%;
-    background-color: rosybrown;
+    top: 16%;
+    /* background-color: rosybrown; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.header a{
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.header a:hover{
+    color: aqua;
 
 }
 .wrap{
     display: flex;
     justify-content: center; 
     align-items: center;
+}
+.mainSlideshow{
+    position: absolute; 
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%); 
+    /* x軸平移50%-本身圖片的寬度(所以-50%) */
+    color: #fff; 
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 300px;
+}
+.mainSlideshow h1{
+    font-size: 150px;
+}
+.poster{
+    /* background-image: url("manufax-pic/asset 1.png"); */
+    background-size: cover;  
+    width: 100%;
+}
+
+.poster nav{
+    /* padding: 30px 0 30px 30px; */
+
+}
+.poster img{
+    width: 100%;
+
+}
+
+.mainSlideshow h2{
+    font-size: 28px;
+    position: absolute;
+    top: 300px;
+    left: 20px; 
+    font-weight: lighter;
+}
+
+.mainSlideshow button{
+    background-color: aqua;
+    width: 300px;
+    height: 60px;
+    border-style: none;
+    color: #fff;
+    
+}
+.mainSlideshow button:hover{
+    background-color: #333;
+}
+
+.mainSlideshow a{
+    display: flex;
+    align-self: center;
+    text-decoration: none;
+}
+.service{
+    margin: 100px;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.OurServicesTitle::before{
+    content: '';
+    border-bottom: 3px solid rgb(61, 199, 253);
+    width: 100px;
+    display: inline-block;
+}
+
+.service .OurServicesTitle{
+    text-align: center;
+}
+
+.service .container{
+    margin: auto;
+    
+    font-size: 30px;
+    margin-top: 100px;
+}
+/* .container .item{
+    width: 450px;
+    height: 250px;
+    margin: 50px;
+} */
+.service .container .pic img{
+    width: 100px;
+    height: 90px;
+}
+.service .container h3{
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.service .container p{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #888;
+    font-weight: 100;
+    line-height: 30px;
+}
+
+.history{
+    background-color: rgb(236, 236, 236);
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+
+.history .container {
+    font-family: Montserrat, sans-serif;
+    margin-top: 150px;
+}
+
+.history .txt h3{
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+
+.history h3::before{
+    content: '';
+    border-bottom: 3px solid rgb(61, 199, 253) ;
+    width: 100px;
+    display: block;
+    position:relative;
+    top: -30px;
+    left: 0;
+}
+
+.history .txt h4{
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: lighter;
+}
+.history .txt p{
+    font-size: 20px;
+    color: #888;
+    font-weight: lighter;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+
+.history button{
+    width: 200px;
+    height: 70px;
+    background-color:rgb(61, 199, 253);
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    
+}
+
+.album{
+    margin-bottom: 100px;
+ 
+    
+}
+
+.album img{
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;	
+}
+
+
+.album h1{
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-family: Montserrat, sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.album .item{
+    position: relative;
+}
+
+
+.album .item{
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}
+
+.album .item img{
+    width: 100%;
+    height: 100%;
+    /* align-items: center; */
+    /* 寫在父層 */
+}
+
+.news{
+    margin-top: 50px;
+}
+
+.news{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 30px;
+}
+
+.news .pic{
+    margin-bottom: 30px;
+}
+.news h3{
+    line-height: 60px;
+}
+.news .RecentNews{
+    font-size: 20px;
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 80px;
+    /* margin: auto;  */
+    text-align: center;
+    /*文字置中寫在子層 */
+}
+
+.news .RecentNews::before{
+    /* 不要空格不然會跑到下面 */
+    content: '';
+    border-bottom:3px solid rgb(61, 199, 253);
+    width: 100px;
+    display: inline-block;
+}
+
+.news a{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.news .buttonRecentNews{
+
+    margin-top: 100px;
+    margin-bottom: 60px;
+    display: block;
+    text-align: center;
+    line-height: 70px;
+    /* 用裡面的內容把高度撐開,就不需要設高度 */
+    width: 200px;
+    /* height: 50px; */
+    background-color: rgb(61, 199, 253);
+}
+
+.news a h2{
+    color: #333;
+    font-weight: lighter;
+}
+
+.news a h2:hover{
+    color:rgb(61, 199, 253);
+}
+
+.news a h3{
+    color:rgb(61, 199, 253);
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+.news a h3:hover{
+    color: #333;
+}
+
+.buttonSeeAllNews{
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+}
+.buttonRecentNews a{
+    color: #fff;
+}
+.buttonRecentNews:hover{
+    background-color: #333;
+    color: #fff;
+}
+.buttonRecentNews{
+
+    /* flex-direction: row; */
+    
+    /* margin: auto; */
+    margin-bottom: 50px;
+}
+
+.footer p{
+    color: #aaaaaa;
+}
+.footer h4{
+    margin-bottom: 80px;
+}
+
+.footer{
+    padding: 150px 50px;
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+    font-family:sans-serif ;
+    font-weight: lighter;
+    color: white;
+}
+.footer .list{
+    font-size: 20px;
+    width: 20%;
+    line-height: 45px;
+    margin: auto;
+    font-weight: lighter;
+}
+.footer a {
+    text-decoration: none;
+}
+
+.footer .l2 a{
+    color: aqua;
+}
+
+.footer .l2 a:hover{
+    color: #fff;
+}
+.footer .l4 a{
+    color: aqua;
+}
+.footer .l4 a:hover{
+    color: #fff;
 }
