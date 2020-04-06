@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&amp;display=swap" rel="stylesheet">
+    <style>
+        #show{
+            display: flex;
+        }
+
+        button{
+            margin: 20px;
+            border-radius: 5px;
+            display: flex ;
+            font-family: sans-serif;
+        }
+
+        .btnArea{
+            margin: 20px;
+            border-radius: 5px;
+            display: flex ;
+            font-family: Microsoft JhengHei;
+            font-size: 20px;
+            background-color: #aaa;
+            width: 100px;
+            height: 100px;
+            align-items: center;
+            text-align: center;
+        }
+/* 
+        colorDiv {
+            display: flex;
+
+
+            } */
+
+        .colorDada{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-between ;
+            
+            margin: 30px;
+        }
+
+        .colorDiv{
+        display: flex;
+        /* align-items: flex-end;  這邊還是沒辦法置中 */
+        }
+
+        p{
+            font-size: 40px;
+        }
+
+        /* .appDiv:hover{
+            background-color: blue;
+        } */
+
+    </style>
+</head>
+
+<body>
+
+    <div id="apple_products" class="row mb-3 d-flex justify-content-center" >
+        <button id="iphone" class="product-btn btn btn-dark"><p>iphone</p> </button>
+        <button id="ipad"   class="product-btn btn btn-dark"><p>ipad</p></button>
+        <button id="mac"    class="product-btn btn btn-dark"><p>mac</p> </button>
+        <button id="watch"  class="product-btn btn btn-dark" ><p>watch</p></button>
+    </div>
+    <br/>
+    <br/>
+	<div id="showDiv" >
+		
+	    <div id="app" class="row mb-3 d-flex justify-content-center align-items-stretch ">
+			<div class="appDiv app-btn bg-light" id="color"></div>
+			<div class="appDiv app-btn bg-light" id="type"></div>
+			<div class="appDiv app-btn bg-light" id="show">    <div id="showImg" >		</div>
+		</div>
+	</div>
+	<br/>
+	<p class="row mb-3 d-flex justify-content-center" id="showAll"></p>
+    
+    <!-- <div > 
+        <button class="btnArea">CSS套在這個button1</button>
+        <button class="btnArea">CSS套在這個button2</button>
+        <button class="btnArea">CSS套在這個button3</button>
+        <button class="btnArea">CSS套在這個button4</button>
+    </div> -->
+
+
+		
+    </div>	
+</body>
+<script>
+    //iPhone, iPad, Mac, Watch
+    var products = {
+        iphone: {
+            p01:{ id:'p01', className: 'btnArea' ,color:'紅', price:'25000', storage:'64G'    , network:'Wifi', pic:'p01', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-xr-red-select-201809?wid=470&hei=556&fmt=png-alpha&.v=1551226038669'  },
+            p02:{ id:'p02', className: 'btnArea' ,color:'藍', price:'27000', storage:'128G'   , network:'Wifi', pic:'p02', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-xr-blue-select-201809?wid=470&hei=556&fmt=png-alpha&.v=1565209264208'  },
+            p03:{ id:'p03', className: 'btnArea' ,color:'黃', price:'28000', storage:'256G'   , network:'Wifi', pic:'p03', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-xr-yellow-select-201809?wid=470&hei=556&fmt=png-alpha&.v=1551226036826'  }
+         },
+        ipad: {
+            p01:{ id:'p01', className: 'btnArea' ,color:'銀', price:'25000', storage:'64G'    , network:'Wifi', pic:'p01', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-wifi-select-space-201909_GEO_TW?wid=470&hei=556&fmt=png-alpha&.v=1567443080749'  },
+            p02:{ id:'p02', className: 'btnArea' ,color:'白', price:'27000', storage:'128G'   , network:'Wifi', pic:'p02', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-wifi-select-silver-201909_GEO_TW?wid=470&hei=556&fmt=png-alpha&.v=1567299773948'  },
+            p03:{ id:'p03', className: 'btnArea' ,color:'粉', price:'28000', storage:'256G'   , network:'Wifi', pic:'p03', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-wifi-select-gold-201909_GEO_TW?wid=470&hei=556&fmt=png-alpha&.v=1567302181892'  }
+
+        },
+        mac: {
+            p01:{ id:'p01', className: 'btnArea' ,color:'灰', price:'25000', storage:'64G'    , network:'Wifi', pic:'p01', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-201807_GEO_TW?wid=452&hei=420&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1539892088247'  },
+            p02:{ id:'p02', className: 'btnArea' ,color:'白', price:'27000', storage:'128G'   , network:'Wifi', pic:'p02', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-silver-select-201807_GEO_TW?wid=452&hei=420&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1539892092211'  },
+            p03:{ id:'p03', className: 'btnArea' ,color:'銀', price:'28000', storage:'256G'   , network:'Wifi', pic:'p03', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp13touch-space-select-201807_GEO_TW?wid=452&hei=420&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1539892088247'  }
+        },
+        watch: {
+            p01:{ id:'p01', className: 'btnArea' ,color:'白', price:'25000', storage:'64G'    , network:'Wifi', pic:'p01', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MTPK2_VW_PF+watch-44-alum-silver-nc-5s_VW_PF_WF_CO_GEO_TW?wid=375&hei=356&fmt=p-jpg&qlt=95&op_usm=0.5,0.5&.v=1566419579642,1567126522785'  },
+            p02:{ id:'p02', className: 'btnArea' ,color:'粉', price:'27000', storage:'128G'   , network:'Wifi', pic:'p02', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MTPM2_VW_PF+watch-44-alum-gold-nc-5s_VW_PF_WF_CO_GEO_TW?wid=375&hei=356&fmt=p-jpg&qlt=95&op_usm=0.5,0.5&.v=1566419585195,1567124933778'  },
+            p03:{ id:'p03', className: 'btnArea' ,color:'黑', price:'28000', storage:'256G'   , network:'Wifi', pic:'p03', url:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MTPL2_VW_PF+watch-44-alum-spacegray-nc-5s_VW_PF_WF_CO_GEO_TW?wid=375&hei=356&fmt=p-jpg&qlt=95&op_usm=0.5,0.5&.v=1566419575240,1567126699040'  }
+        }
+    };
+
+    let button_iphone   = document.getElementById('iphone');
+
+    var showArea        = document.getElementById('app');
+    var colorBtnArea    = document.getElementById('color');
+    var typeBtnArea     = document.getElementById('type');
+    var productArea     = document.getElementById('show');
+
+    var showImg         = document.getElementById('showImg');
+
+
+    let div_apple_products              = document.getElementById('apple_products');
+    let div_apple_products_sons         = div_apple_products.children;
+    let div_apple_products_sons_size    = div_apple_products_sons.length;
+
+    for (let i = 0; i < div_apple_products_sons_size; i++) {
+        let son = div_apple_products_sons[i];
+        son.addEventListener('click',function(){    
+			//---------------------顏色------------------------//			
+			//清除全部
+            clearColorButton();
+            clearImgs();
+            //建立兒子
+            
+            let colorDiv            = document.createElement('div'); //dad
+            //colorDiv.className  = dada.className;
+            colorDiv.className ='colorDada' ;
+
+            colorDiv.id             = son.id + '_colorDiv';
+            for(var key in products[son.id]){
+                let value           = products[son.id][key];
+                let colorBtn        = document.createElement('button');
+                colorBtn.id         = son.id + '_' + value.id;
+                colorBtn.innerText  = value.color;
+                colorBtn.className  = value.className;  //虛擬的btn選的方法 創一個 活的 要去選iphone裡面的p01 / p02 / p03
+                colorDiv.appendChild(colorBtn);   //增加好幾個兒子
+
+                colorBtn.addEventListener('click',function(){
+
+                    clearImgs();
+                    let img        = document.createElement('img');
+                    console.log(value.url);
+                    img.src        = value.url;
+                    showImg.appendChild(img);
+
+				});
+            }
+            colorBtnArea.appendChild(colorDiv);    
+			
+			//---------------------規格------------------------//			
+			//清除全部
+            let typeDiv_sons       = typeBtnArea.children;
+            let typeDiv_sons_size  = typeDiv_sons.length;
+			for (let index = 0; index < typeDiv_sons_size; index++) {
+                //console.log('清除id>>' + typeDiv_sons[0].id);
+                typeBtnArea.removeChild(typeDiv_sons[0]);                    
+            }
+			//建立兒子
+
+            let typeDivId    = son.id + 'typeDiv';
+            let productsSize = Object.keys(products[son.id]).length;
+
+            for (let index = 0; index < productsSize; index++) {
+                let key     = Object.keys(products[son.id])[index]; 
+                let value   = products[son.id][key];
+
+                let typeDiv = document.createElement('div');
+                typeDiv.id  = son.id + 'typeDiv' + index;   
+
+                let typeP           = document.createElement('p');
+                typeP.id	        = value.id + 'p' + index;
+                typeP.innerText		= value.storage;                
+                typeDiv.appendChild(typeP);
+
+                let typeSpan        = document.createElement('span');
+                typeSpan.id			= value.id + 'span' + index; 
+                typeSpan.innerText	= value.price;
+
+				typeDiv.addEventListener('click',function(){
+					let apple_products_show = document.getElementById('showAll');
+					apple_products_show.innerText = '價格:' + typeSpan.innerText;
+				});
+
+                typeDiv.appendChild(typeSpan);
+                typeBtnArea.appendChild(typeDiv);               
+            }
+
+        });
+    }
+
+    function clearColorButton(){
+        //清除全部按鈕
+        let colorDiv_sons       =colorBtnArea.children;
+        let colorDiv_sons_size  =colorDiv_sons.length;
+        for (let index = 0; index < colorDiv_sons.length; index++) {
+            colorBtnArea.removeChild(colorDiv_sons[0]);                    
+        }
+    }
+
+    function clearImgs(){
+        //清除全部圖片
+        let showImg_sons       =showImg.children;
+        let showImg_sons_size  =showImg_sons.length;
+
+        for (let index = 0; index < showImg_sons_size; index++) {
+            showImg.removeChild(showImg_sons[0]);                    
+        }
+    }    
+
+</script>
+
+</html>
