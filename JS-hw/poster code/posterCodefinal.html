@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>--行政區選擇--</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #msg{
+            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="helper.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="">
+                    <div class="form-row justify-content-center">
+                        <div class="col-12">
+                            <h1>請先選擇<城市>
+                            </h1>
+                        </div>
+                        <div class="col-4">
+                            <select name="cities" id="cities" class="form-control">
+                                <option value="" selected hidden disabled>--請選擇城市--</option>
+                                <!-- <option value="taipei">台北</option>
+                                <option value="taoyuan">桃園</option>
+                                <option value="taichung">台中</option> -->
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select name="district" id="district" class="form-control">
+                                <!-- <option value="" selected hidden disabled>--請選擇行政區--</option> -->
+                                <!-- <option value="t01">中正區</option>
+                                <option value="t02">萬華區</option>
+                                <option value="t03">信義區</option> -->
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12">
+                <div id="msg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+	
+        function initTown(items, clear = false, first = false) {
+			
+		
+			var body  = document.querySelector('body');
+			var table = document.createElement('table');
+			table.id = 'a';
+			var aa = document.getElementById('a');
+			if(aa){
+				aa.remove();
+			}			
+			var thead = document.createElement('thead');
+			var tbody = document.createElement('tbody');
+			table.appendChild(thead);
+			table.appendChild(tbody);
+			body.appendChild(table);
+				
+		    let th2 = document.createElement('th');
+            let th3 = document.createElement('th');
+            let thtr = document.createElement('tr');
+			th2.innerHTML = '地區';
+            th3.innerHTML = '郵遞區號';
+			thtr.appendChild(th2);
+            thtr.appendChild(th3);
+            thead.appendChild(thtr);
+			
+			items.Districts.forEach((x, y) => {
+				let td2 = document.createElement('td');
+				let td3 = document.createElement('td');
+				let tbtr = document.createElement('tr');
+				td2.innerHTML = x.District;
+				td3.innerHTML = x.ZipCode;
+				tbtr.appendChild(td2);
+				tbtr.appendChild(td3);
+				tbody.appendChild(tbtr);
+            });
+
+        }
+		
+        function getAddressJSON(url) {
+            fetch(url).then(respon => respon.json())
+                .then(data => {
+                    // console.log(data);
+                    let s = $g('.col-4:not(:last-child) select');
+                    data.forEach((item, index) => {
+                        let option1 = $c('option');
+                        option1.text = item.City;
+                        option1.value = index;
+                        s.appendChild(option1);
+                    });
+                    s.addEventListener('change', (e) => {
+						console.log('1' + e.target.value);
+						//console.log('2' + e.target.innerText);
+                        initTown(data[e.target.value], true, true);
+                        console.log('has change town to ' + data[e.target.value].City);
+                        console.log(e.target);
+                    });
+                    let s2 = $g('.col-4:last-child select');
+                    let msg = $g('#msg');
+                    s2.addEventListener('change', (e) => {
+                        msg.innerHTML = `${s.selectedOptions[0].text} ,${e.target.selectedOptions[0].text}`;
+                    });
+                }).catch(ex => {});
+        }
+		
+        getAddressJSON('https://raw.githubusercontent.com/NellySIN180/FileStorage/master/TaiwanAddress_Simple.json');
+		
+    </script>
+</body>
+</html>
