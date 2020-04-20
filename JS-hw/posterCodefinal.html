@@ -18,6 +18,9 @@
             font-size: 30px;
             margin-top: 20px;
         }
+        #a{
+            margin: auto;
+        }
     </style>
     <script src="helper.js"></script>
 </head>
@@ -39,14 +42,14 @@
                                 <option value="taichung">台中</option> -->
                             </select>
                         </div>
-                        <div class="col-4">
+                        <!-- <div class="col-4">
                             <select name="district" id="district" class="form-control">
-                                <!-- <option value="" selected hidden disabled>--請選擇行政區--</option> -->
-                                <!-- <option value="t01">中正區</option>
+                                <option value="" selected hidden disabled>--請選擇行政區--</option>
+                                 <option value="t01">中正區</option>
                                 <option value="t02">萬華區</option>
-                                <option value="t03">信義區</option> -->
+                                <option value="t03">信義區</option>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>
@@ -112,7 +115,7 @@
             fetch(url).then(respon => respon.json())
                 .then(data => {
                     // console.log(data);
-                    let s = $g('.col-4:not(:last-child) select');
+                    let s = $g('.col-4 select');
                     data.forEach((item, index) => {
                         let option1 = $c('option');
                         option1.text = item.City;
@@ -126,11 +129,11 @@
                         console.log('has change town to ' + data[e.target.value].City);
                         console.log(e.target);
                     });
-                    let s2 = $g('.col-4:last-child select');
-                    let msg = $g('#msg');
-                    s2.addEventListener('change', (e) => {
-                        msg.innerHTML = `${s.selectedOptions[0].text} ,${e.target.selectedOptions[0].text}`;
-                    });
+                    // let s2 = $g('.col-4:last-child select');
+                    // let msg = $g('#msg');
+                    // s2.addEventListener('change', (e) => {
+                    //     msg.innerHTML = `${s.selectedOptions[0].text} ,${e.target.selectedOptions[0].text}`;
+                    // });
                 }).catch(ex => {});
         }
 		
